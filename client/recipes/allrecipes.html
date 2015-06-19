@@ -9,23 +9,27 @@
 <table class="table table-hover table-striped" id="booksTable">
 	<thead>
 		<tr>
+			<th>&nbsp;</th>
 			<th>Title</th>
-			<th>Author</th>
-			<th>Shelf</th>
-			<th>ISBN</th>
+			<th>Created by</th>
+			<th>Rack</th>
+			<th>Prep time</th>
+			<th>Cooking time</th>
 			<th>Tags</th>
-			<th>Status</th>
+			<th>&nbsp;</th>
 		</tr>
 	</thead>
 	<tbody>
-		{{#each booksData}}
+		{{#each recipesData}}
 		<tr>
+			<td><a class="btn btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></td>
 			<td>{{title}}</td>
-			<td>{{author}}</td>
-			<td>{{shelf}}</td>
-			<td>{{isbn}}</td>
+			<td>{{creator}}</td>
+			<td>{{rack}}</td>
+			<td>{{preptime}}</td>
+			<td>{{cooktime}}</td>
 			<td>{{tags}}</td>
-			<td>{{status}}</td>
+			<td><a class="view-btn btn btn-default"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
 		</tr>
 		{{/each}}
 	</tbody>
