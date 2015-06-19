@@ -20,6 +20,11 @@ Template.recipe.helpers({
 });
 
 Template.recipe.events({
+	'click .view-btn': function() {
+		event.preventDefault();
+		Session.set("viewrecipe",this._id);
+		Router.go('viewRecipe',{_id:this._id});
+	},
 	'click .edit-btn': function() {
 		event.preventDefault();
 		Session.set("editedrecipe",this._id);

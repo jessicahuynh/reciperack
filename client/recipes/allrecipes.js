@@ -32,5 +32,9 @@ Template.allrecipes.helpers({
 });
 
 Template.allrecipes.events({
-
+	'click .view-btn': function() {
+		event.preventDefault();
+		Session.set("viewrecipe",this._id);
+		Router.go('viewRecipe',{_id:this._id});
+	},
 });
