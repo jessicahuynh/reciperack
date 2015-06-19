@@ -1,0 +1,21 @@
+<template name="addRecipe">
+<h1>Add a recipe</h1>
+{{#if currentUser}}
+<div>
+	<div id="addrecipe">
+		<form class="form-horizontal" id="addrecipeform">
+			{{> recipeForm}}
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-success btn-lg">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add recipe
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{{else}}
+<p>Please log in!</p>
+{{/if}}
+</template>

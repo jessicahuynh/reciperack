@@ -1,0 +1,30 @@
+<template name="myrecipes">
+<h1>My Recipes</h1>
+{{#if currentUser}}
+<p><a href="{{pathFor 'addRecipe'}}">Add a recipe</a></p>
+
+<table class="table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th>Title</th>
+			<th>Rack</th>
+			<th>Prep time</th>
+			<th>Cooking time</th>
+			<th>Tags</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each recipesData}}
+		<tr>
+			{{> recipe}}
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+{{else}}
+<p class="bg-danger">You might want to try logging in before doing that</p>
+{{/if}}
+</template>
