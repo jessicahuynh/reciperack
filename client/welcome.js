@@ -41,7 +41,7 @@ Template.welcome.helpers({
 		}
 	},
 	prepStep:function(){
-		return this.prepsteps;
+		return Recipes.findOne({},{sort:{addedAt:-1},limit:1}).prepsteps;
 	},
 	step:function(){
 		return this;
