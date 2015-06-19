@@ -8,12 +8,12 @@ Template.layout.events({
 	'click #speak':function(event){
 		event.preventDefault();
 
-		$("#speechText").show();
+		$("#speechText").show(350);
 		startDictation(event);
 	},
 	'click #closeSpeechText':function(event){
 		event.preventDefault();
-		$("#speechText").hide();
+		$("#speechText").hide(350);
 	}
 });
 
@@ -47,7 +47,7 @@ Template.layout.events({
   		var interim_transcript = '';
   		for (var i = event.resultIndex; i < event.results.length; ++i) {
   			console.log("i="+i);
-  			if (event.results[i][0].transcript.indexOf("add recipe") != -1) {
+  			if (event.results[i][0].transcript.indexOf("add recipe") != -1 || event.results[i][0].transcript.indexOf("add a recipe") != -1) {
   				recognition.stop();
   				recognizing = false;
   				if (Meteor.userId() == null) {
@@ -100,15 +100,15 @@ Template.layout.events({
   				console.log('interim events.results[i][0].transcript = '+ JSON.stringify(event.results[i][0].transcript));
   			}
 
-  			if (event.results[i][0].transcript.indexOf("read it back") != -1) {
-  				recognition.stop();
-  				recognizing = false;
+  			// if (event.results[i][0].transcript.indexOf("read it back") != -1) {
+  			// 	recognition.stop();
+  			// 	recognizing = false;
 
-  				readReturn = new SpeechSynthesisUtterance(event.results[i][0].transcript);
-  				window.speechSynthesis.speak(readReturn);
+  			// 	readReturn = new SpeechSynthesisUtterance(event.results[i][0].transcript);
+  			// 	window.speechSynthesis.speak(readReturn);
 
-  				return;
-  			}
+  			// 	return;
+  			// }
   		}
       //final_transcript = capitalize(final_transcript);
       final_span.innerHTML = linebreak(final_transcript);

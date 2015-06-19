@@ -1,6 +1,6 @@
 <template name="viewRecipe">
 {{#with recipe}}
-	<h1>{{title}} <small>by {{creator}}</small></h1>
+	<h1>{{title}} <small>by {{creator}} <a href="#" id="readRecipeInfo"><span class="text-right glyphicon glyphicon-headphones"></span></a></small></h1>
 
 	<div class="row">
 		<div class="col-sm-4">
@@ -19,7 +19,7 @@
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h3 class="panel-title">Ingredients</h3>
+					<h3 class="panel-title">Ingredients <small><a href="#" id="readRecipeIngredients"><span class="text-right glyphicon glyphicon-headphones"></span></a></small></h3>
 				</div>
 				<div class="panel-body">
 					<ul class="list-unstyled">
@@ -44,6 +44,7 @@
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane in active" id="prep">
+					<p><a href="#" id="readPrepSteps"><span class="text-right glyphicon glyphicon-headphones"></span> Read preparation steps</a></p>
 					<ol>
 						{{#each prepStep}}
 							<li>{{step}}</li>
@@ -51,6 +52,7 @@
 					</ol>
 				</div>
 				<div class="tab-pane" id="cook">
+					<p><a href="#" id="readCookSteps"><span class="text-right glyphicon glyphicon-headphones"></span> Read instructions for cooking</a></p>
 					<ol>
 						{{#each cookStep}}
 							<li>{{step}}</li>

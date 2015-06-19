@@ -22,9 +22,6 @@ Template.welcome.helpers({
 	mostRecentRecipe: function() {
 		return Recipes.findOne();
 	},
-	recipePage: function() {
-		return "/viewRecipe/"+this._id;
-	},
 	preptime:function() {
 		var a = this.preptime;
 		if (a[0] == null || a[0] == 0) {
@@ -48,5 +45,13 @@ Template.welcome.helpers({
 	},
 	step:function(){
 		return this;
+	}
+});
+
+Template.welcome.events({
+	'click .viewRecipePage':function(event) {
+		event.preventDefault();
+		Session.set("viewrecipe",this._id);
+		Router.go('/viewRecipe/'+this._id);
 	}
 });

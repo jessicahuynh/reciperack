@@ -16,7 +16,7 @@
 				{{/each}}
 			</ol>
 
-			<p class="text-right"><a href="{{recipePage}}">View more&hellip;</a></p>
+			<p class="text-right"><a href="#" class="viewRecipePage">View more&hellip;</a></p>
 			{{/with}}
 			<p class="small">The most recently added recipe!</p>
 		</div>		
@@ -33,7 +33,7 @@
 			<h3>Recently added</h3>
 			<ul>
 				{{#each recentData}}
-				<li><a href="{{recipePage}}">{{title}}</a></li>
+				<li><a href="#" class="viewRecipePage">{{title}}</a></li>
 				{{/each}}
 			</ul>
 			<p>Try adding and cataloging your own!</p>
@@ -45,7 +45,7 @@
 			{{#if currentUser}}
 			<ul>
 				{{#each recommendedData}}
-				<li><a href="{{recipePage}}">{{title}}</a></li>
+				<li><a href="#" class="viewRecipePage">{{title}}</a></li>
 				{{/each}}
 			</ul>
 			<p>Recommendations are based on your tags.</p>
