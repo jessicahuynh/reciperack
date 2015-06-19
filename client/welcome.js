@@ -20,7 +20,7 @@ Template.welcome.helpers({
 	},
 
 	mostRecentRecipe: function() {
-		return Recipes.findOne();
+		return Recipes.findOne({},{sort:{addedAt:-1},limit:1});
 	},
 	preptime:function() {
 		var a = this.preptime;

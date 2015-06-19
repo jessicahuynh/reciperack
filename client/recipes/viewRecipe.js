@@ -124,18 +124,14 @@ Template.viewRecipe.events({
 function getTypeText() {
 	var type = Recipes.findOne({_id:Session.get("viewrecipe")}).type;
 	var s = [];
-	var num = 0;
 
 	if (type[0]) {
-		num++;
 		s.push("vegetarian");
 	}
 	if (type[1]) {
-		num++;
 		s.push("vegan");
 	}
 	if (type[2]) {
-		num++;
 		s.push("kosher");
 	}
 	if (type[3]) {
@@ -144,6 +140,8 @@ function getTypeText() {
 	if (type[4]) {
 		s.push("gluten free");
 	}
+
+	var num = s.length;
 
 	switch(num) {
 		case 0:
