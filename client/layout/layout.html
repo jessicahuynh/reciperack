@@ -26,18 +26,27 @@
 					{{#if currentUser}}
 					<li><a href="{{pathFor 'myrecipes'}}">My Recipes</a></li>
 					<!--<li><a href="{{pathFor 'people'}}">Users</a></li>-->
-					<li><a href="/profile/{{userid}}">My Profile</a></li>
+					<li><a href="/profile/{{userid}}">My Porfile</a></li>
 					{{else}}
 					<li><p class="navbar-text">Please log in for more</p></li>
 					{{/if}}
 				</ul>
 			    <ul class="nav navbar-nav navbar-right">
-			            {{> loginButtons}} <!-- here -->
+			    	{{#if currentUser}}<li><a href="{{pathFor 'addRecipe'}}"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add recipe</a></li>{{/if}}
+			    	<li><a href="#speechText" id="speak"><span class="glyphicon glyphicon-bullhorn"></span></a></li>
+			    	{{> loginButtons}}
 			    </ul>				
 		    </div><!-- /.navbar-collapse -->
 			
 		  </div><!-- /.container-fluid -->
 		</nav>
+
+		<div id="speechText" class="alert alert-info collapse" role="alert">
+			<button type="button" href="#speechText" class="close" id="closeSpeechText" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+			<span id="final_span" class="final"></span> 
+			<span id="interim_span" class="interim"></span> 
+		</div>
 		
 		<!-- Here is where the actual content of the page gets inserted by the router! -->
 		{{> yield}}
