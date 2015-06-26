@@ -74,8 +74,10 @@ function findWithIngred() {
 		iList.forEach(function(ingredientName) {
 			// each filtered ingredient
 			filterList.forEach(function(ingredient) {
-				if (ingredient == ingredientName[2]) {
-					counter++;
+				if (ingredientName[2]) {
+					if (ingredientName[2].includes(ingredient)) {
+						counter++;
+					}
 				}
 			});
 		});

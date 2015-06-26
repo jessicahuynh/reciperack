@@ -139,3 +139,4 @@ function startDictation(event) {
 	final_span.innerHTML = '';
 	interim_span.innerHTML = '';
 }
+
