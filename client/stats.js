@@ -122,21 +122,20 @@ function getRacks() {
 	var r = [];
 	var num = [];
 	var data = [];
-	collection = Recipes.find( {}, {sort: {rack:-1} } ).fetch();
+	var collection = Recipes.find( {}, {sort: {rack:-1} } ).fetch();
 
 	collection.forEach(function(recipe) {
-		var rackName = String(recipe.rack);
-		console.log(r.indexOf(rackName) + rackName+ " " + rackName.length);
-		if ($.inArray(rackName,r) != -1) {
+		var rackName = (recipe.rack).toString();
+		//console.log(typeof(recipe.rack) + " " + typeof((recipe.rack).toString()));
+		//console.log(r.indexOf(rackName) + rackName+ " " + rackName.length);
+		if (r.indexOf(rackName) != -1) {
 			num[r.indexOf(rackName)] += 1;
 		}
 		else {
-			r.push([rackName]);
+			r.push(rackName);
 			num.push(1);
 		}
 	});
-	console.log(r[1]==r[2]);
-	console.log(num[1]==num[2]);
 
 	for (var i = 0; i < r.length; i++) {
 		data.push({"label":r[i],"value":num[i],"color":getRandomColor()});
