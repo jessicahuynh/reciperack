@@ -70,7 +70,7 @@ Template.stats.rendered = function() {
 var pie = new d3pie("recipeRacksChart",{
 	"header": {
 		"title": {
-			"text":"Most common recipe racks",
+			"text":"Common recipe racks",
 			"fontSize":24
 		}
 	},
@@ -120,22 +120,27 @@ var pie = new d3pie("recipeRacksChart",{
 
 function getRacks() {
 	var r = [];
+	var num = [];
 	var data = [];
-	collection = Recipes.find().fetch();
-	console.log(collection);
+	collection = Recipes.find( {}, {sort: {rack:-1} } ).fetch();
+
 	collection.forEach(function(recipe) {
-		if (r.indexOf(recipe.rack) > -1) {
-			var i = r[indexOf(recipe.rack)][1];
-			r[indexOf(recipe.rack)] = [recipe.rack,i++]
+		var rackName = String(recipe.rack);
+		console.log(r.indexOf(rackName) + rackName+ " " + rackName.length);
+		if ($.inArray(rackName,r) != -1) {
+			num[r.indexOf(rackName)] += 1;
 		}
 		else {
-			r.push([recipe.rack,1]);
+			r.push([rackName]);
+			num.push(1);
 		}
 	});
+	console.log(r[1]==r[2]);
+	console.log(num[1]==num[2]);
 
-	r.forEach(function(elem) {
-		data.push({"label":elem[0],"value":elem[1],"color":getRandomColor()});
-	})
+	for (var i = 0; i < r.length; i++) {
+		data.push({"label":r[i],"value":num[i],"color":getRandomColor()});
+	}
 	console.log("data: " + data);
 	return data;
 }
