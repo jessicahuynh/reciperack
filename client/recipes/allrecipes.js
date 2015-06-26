@@ -1,6 +1,15 @@
+Session.setDefault("recipesSortType","addedAt");
+
 Template.allrecipes.helpers({
 	recipesData: function() {
-		return Recipes.find( {}, {sort: {addedAt:-1} } );
+		switch (Session.get("recipesSortType")) {
+			case "addedAt":
+				return Recipes.find( {}, {sort: {addedAt:-1} } );
+				break;
+			case "title":
+				return Recipes.find( {}, {sort: {title:1} } );
+				break;
+		}
 	},
 	preptime:function() {
 		var a = this.preptime;
@@ -37,4 +46,23 @@ Template.allrecipes.events({
 		Session.set("viewrecipe",this._id);
 		Router.go('viewRecipe',{_id:this._id});
 	},
+	'click #recipeSort li':function(event) {
+		event.preventDefault();
+		// removes active class from previous tab
+		$(".nav li.active").removeClass("active");
+
+		// toggles the active class for the li you clicked on
+		// make sure to set data-toggle="pill"/"tab" for it to work!
+		if (!$(this).hasClass("active")) {
+			$(this).toggleClass("active");
+		}
+	},
+	'click #addedAt':function(event) {
+		event.preventDefault();
+		Session.set("recipesSortType","addedAt");
+	},
+	'click #title':function(event) {
+		event.preventDefault();
+		Session.set("recipesSortType","title");
+	}
 });
