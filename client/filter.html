@@ -1,5 +1,14 @@
 <template name="filter">
-	<h1 class="page-header">Filter</h1>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="index"}}
+	{{/contentFor}}
+	
+	{{#contentFor "headerTitle"}}
+	<h1 class='title'>Filter</h1>
+	{{/contentFor}}
+	
+	{{#ionView}}
+	{{#ionContent class="padding"}}
 
 	<div class="row">
 		<div class="col-xs-4">
@@ -41,4 +50,6 @@
 			</table>
 		</div>
 	</div>
+	{{/ionContent}}
+	{{/ionView}}
 </template>

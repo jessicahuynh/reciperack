@@ -1,20 +1,26 @@
 <template name="about">
-<h1>About</h1>
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="index"}}
+	{{/contentFor}}
+	
+	{{#contentFor "headerTitle"}}
+	<h1 class='title'>About</h1>
+	{{/contentFor}}
+	
+	{{#ionView}}
+	{{#ionContent class="padding"}}
 
 <p>Reciperack was cobbled together by <a href="http://jessicahuynh.info/">Jessica Huynh</a> using HTML5, CSS3, Twitter Bootstrap, and the Meteor framework for JavaScript. It is designed to be an easy way to categorize and sort your recipes, without any additional cruft.</p>
 
-<div class="row">
-	<div class="col-md-6">
 		<h2>About me</h2>
 		<p>I am a rising senior at <a href="http://www.brandeis.edu/">Brandeis University</a> double majoring in computer science and linguistics. I'm very good at spending too long in front of computers and very bad at organizing my food, hence the existence of this app, developed for the <a href="https://sites.google.com/a/brandeis.edu/jbs-2015-cosi/home">2015 JBS on Voice, Mobile, and Web Applications</a>.</p>
-	</div>
 
-	<div class="col-md-6">
 		<h2>About Reciperack</h2>
 		<p>As mentioned, Reciperack is supposed to help you categorize and refer back to your recipes, without anything else getting in the way.</p>
 		<p>In addition to being able to add, edit, and view your recipes, exciting additional features include the ability to navigate parts of the website with your voice and to listen to recipes. Future updates will focus more on the social side of things&mdash;favoriting, commenting, exchanging recipes, and so on.</p>
-	</div>
-</div>
+
+{{/ionContent}}
+{{/ionView}}
 
 
 </template>

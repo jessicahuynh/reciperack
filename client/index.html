@@ -1,0 +1,61 @@
+<template name="index">
+{{#contentFor "headerTitle"}}
+    <h1 class="title">Reciperack</h1>
+  {{/contentFor}}
+
+  {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+
+        {{#ionItem path="allrecipes" iconLeft=true iconRight=true}}
+          {{> ionIcon icon="ios-checkmark" class="positive"}}
+          All Recipes
+          {{> ionIcon icon="ios-arrow-right"}}
+        {{/ionItem}}
+        
+        {{#ionItem path="filter" iconLeft=true iconRight=true}}
+          {{> ionIcon icon="ios-checkmark" class="positive"}}
+          Filter
+          {{> ionIcon icon="ios-arrow-right"}}
+        {{/ionItem}}
+		
+        {{#ionItem path="stats" iconLeft=true iconRight=true}}
+          {{> ionIcon icon="ios-checkmark" class="positive"}}
+          Statistics
+          {{> ionIcon icon="ios-arrow-right"}}
+        {{/ionItem}}
+        
+        {{#ionItem path="about" iconLeft=true iconRight=true}}
+          {{> ionIcon icon="ios-checkmark" class="positive"}}
+          About
+          {{> ionIcon icon="ios-arrow-right"}}
+        {{/ionItem}}
+
+		
+		{{#if currentUser}}
+
+	        {{#ionItem path="myrecipes" iconLeft=true iconRight=true}}
+	          {{> ionIcon icon="ios-checkmark" class="positive"}}
+	          My Recipes
+	          {{> ionIcon icon="ios-arrow-right"}}
+	        {{/ionItem}}
+			
+			 {{#ionItem path="addRecipe" iconLeft=true iconRight=true}}
+	          {{> ionIcon icon="ios-checkmark" class="positive"}}
+	          Add Recipe
+	          {{> ionIcon icon="ios-arrow-right"}}
+	        {{/ionItem}}
+			
+		{{else}}
+		
+		{{#ionItem}}
+			Please log in for more
+		{{/ionItem}}
+			
+		{{/if}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}}
+
+</template>

@@ -1,10 +1,27 @@
 <template name="layout">
-	<div class="container">
+	{{#ionBody}}
+		{{> ionNavBar class="bar-positive"}}
 		
-		<!-- Here is the standard Bootstrap code for a Navigation bar taken directly from getbootstrap.com/components -->
+		{{#ionNavView}}
+			{{> yield}}
+		{{/ionNavView}}
+	{{/ionBody}}
+	
+	{{#ionTabs class="tabs-positive tabs-icon-top"}}
+	  {{> ionTab title="My Recipes" path="myrecipes" iconOff="ios-paper" iconOn="ios-paper"}}
+	  <!--{{#if currentUser}}-->
+	  {{> ionTab title="Add Recipe" path="addRecipe" iconOff="ios-plus" iconOn="ios-plus"}}
+	  <!--{{/if currentUser}}-->
+	  {{> ionTab title="Profile" path="profile" iconOff="person" iconOn="person"}}
+	  {{> ionTab title="Speak" path="#speeechText" iconOff="ios-mic" iconOn="ios-mic"}}
+	{{/ionTabs}}
+
+	<!--<div class="container">
+		
+		
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
+
 		    <div class="navbar-header">
 		      <button type="button" class="navbar-toggle collapsed" 
 			  			data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -18,7 +35,7 @@
 	      	  </a>
 		    </div>
 
-		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    Collect the nav links, forms, and other content for toggling
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
 					<li><a href="{{pathFor 'about'}}">About</a></li>
@@ -27,7 +44,7 @@
 					<li><a href="{{pathFor 'stats'}}">Statistics</a></li>
 					{{#if currentUser}}
 					<li><a href="{{pathFor 'myrecipes'}}">My Recipes</a></li>
-					<!--<li><a href="{{pathFor 'people'}}">Users</a></li>-->
+					<li><a href="{{pathFor 'people'}}">Users</a></li>
 					<li><a href="/profile/{{userid}}">My Profile</a></li>
 					{{else}}
 					<li><p class="navbar-text">Please log in for more</p></li>
@@ -38,20 +55,20 @@
 			    	<li><a href="#speechText" id="speak"><span class="glyphicon glyphicon-bullhorn"></span></a></li>
 			    	{{> loginButtons}}
 			    </ul>				
-		    </div><!-- /.navbar-collapse -->
+		    </div>--><!-- /.navbar-collapse -->
 			
-		  </div><!-- /.container-fluid -->
-		</nav>
+		  <!--</div> /.container-fluid -->
+		<!--</nav>
 
 		<div id="speechText" class="alert alert-info collapse" role="alert">
 			<button type="button" href="#speechText" class="close" id="closeSpeechText" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
 			<span id="final_span" class="final"></span> 
 			<span id="interim_span" class="interim"></span> 
-		</div>
+		</div>-->
 		
 		<!-- Here is where the actual content of the page gets inserted by the router! -->
-		{{> yield}}
+		<!--{{> yield}}
 		
-	</div>
+	</div>-->
 </template>

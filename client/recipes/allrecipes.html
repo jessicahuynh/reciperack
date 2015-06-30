@@ -1,37 +1,63 @@
 <template name="allrecipes">
-<h1>All Recipes</h1>
-<div>
-	<ul class="nav nav-pills" id="recipeSort">
+	
+	{{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="index"}}
+	{{/contentFor}}
+	
+	{{#contentFor "headerTitle"}}
+	<h1 class='title'>All Recipes</h1>
+	{{/contentFor}}
+	
+{{#ionView}}
+	{{#ionSubheaderBar}}
+	<!--<ul class="nav nav-pills" id="recipeSort">
 		<li role="presentation" class="active" data-toggle="pill"><a href="#" id="addedAt">Most recently added</a></li>
 		<li role="presentation" data-toggle="pill"><a href="#" id="title">Title</a></li>
-	</ul>
-</div>
-<table class="table table-hover table-striped" id="booksTable">
-	<thead>
-		<tr>
-			<!-- <th>&nbsp;</th> -->
-			<th>Title</th>
-			<th>Created by</th>
-			<th>Rack</th>
-			<th>Prep time</th>
-			<th>Cooking time</th>
-			<th>Tags</th>
-			<th>&nbsp;</th>
-		</tr>
-	</thead>
-	<tbody>
-		{{#each recipesData}}
-		<tr>
-			<!-- <td><a class="btn btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></td> -->
-			<td>{{title}}</td>
-			<td>{{creator}}</td>
-			<td>{{rack}}</td>
-			<td>{{preptime}}</td>
-			<td>{{cooktime}}</td>
-			<td>{{tags}}</td>
-			<td><a class="view-btn btn btn-default"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
-		</tr>
-		{{/each}}
-	</tbody>
-</table>
+	</ul>-->
+	<h2 class="title">
+		<div class="row">
+		<span class="col col-40" style="display:inline">Title (created by)</span>
+		<span class="col col-15" style="display:inline">Rack</span> 
+		<span class="col col-25" style="display:inline">Prep and cooking time</span>
+		<span class="col col-15" style="display:inline">Tags</span>
+		<span class="col col-5" style='display:inline'>&nbsp;</span>
+		</div>
+	</h2>
+	{{/ionSubheaderBar}}
+
+	{{#ionContent class="padding"}}
+	
+	{{#ionList}}
+
+	{{#each recipesData}}
+	
+	{{#ionItem}}
+	<div class="row">
+		<div class="col col-40">
+			<p><strong>{{title}}</strong>
+				<small>({{creator}})</small>
+			</p>
+		</div>
+		<div class="col col-15">
+			<p>{{rack}}</p>
+		</div>
+		<div class="col col-25">
+			<p>{{preptime}}
+			{{cooktime}}</p>
+		</div>
+		<div class="col col-15">
+			{{tags}}
+		</div>
+		<div class="col col-5">
+			<p style="text-align:right"><button class="view-btn button button-positive">{{> ionIcon icon="ios-eye"}}</button></p>
+		</div>
+	</div>
+	{{/ionItem}}
+	{{/each}}
+	
+	{{/ionList}}
+
+
+{{/ionContent}}
+{{/ionView}}
 </template>
