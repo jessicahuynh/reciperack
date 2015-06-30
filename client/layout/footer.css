@@ -1,0 +1,20 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 50px;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height:50px;
+	background-color:#222;
+}
+footer nav.navbar.navbar-inverse {
+	margin-bottom:0;
+	border:0;
+}
