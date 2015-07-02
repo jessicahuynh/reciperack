@@ -9,7 +9,7 @@ Template.game.helpers({
 		return Session.get("timer");
 	},
 	userScore: function() {
-		return Scores.find({},{sort:{userscore:-1}}).fetch();
+		return Scores.find({},{sort:{userscore:-1}});
 	}
 });
 
