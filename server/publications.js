@@ -1,5 +1,6 @@
 Meteor.publish("theProfiles",function(){return Profiles.find();});
 Meteor.publish("theRecipes",function(){return Recipes.find();});
+Meteor.publish("theScores",function(){return Scores.find();});
 
 
 Meteor.publish("userData", function () {

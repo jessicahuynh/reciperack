@@ -2,12 +2,42 @@
 <h1>Ingredient Matching</h1>
 <div class="panel panel-primary">
   <div class="panel-body">
-    <p>Take a break! The object of the game is to match as many ingredients as you can before the timer runs out!</p>
+    <p>Take a break! The object of the game is to catch <em>only</em> the circular ingredients. Get a high a score as you can before the timer runs out!</p>
   </div>
 </div>
 <hr />
-<p><button id="controlGame" class="btn btn-primary">Start</button></p>
+<p>
+	<button id="controlGame" class="btn btn-primary">Start</button> 
+	<b>Timer:</b>&nbsp;<input type="text" id="timer" value="{{time}}" readonly>
+</p>
 <canvas id="matchingGame" width="400" height="400">
 	Your browser doesn't support this game!
 </canvas>
+<p><b>Score:</b>&nbsp;<input type="text" id="score" value="{{score}}" readonly></p>
+
+<hr />
+<form id="addScore">
+	<input type="text" id="winner"> 
+	<button type="submit">Record score</button>
+</form>
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<th>User</th>
+			<th>Score</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each userScore}}
+			{{> scoreboard}}
+		{{/each}}
+	</tbody>
+</table>
+</template>
+
+<template name="scoreboard">
+	<tr>
+		<td>{{username}}</td>
+		<td>{{userscore}}</td>
+	</tr>
 </template>

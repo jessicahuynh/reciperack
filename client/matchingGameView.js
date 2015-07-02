@@ -1,5 +1,5 @@
 function draw() {
-	var drawContext = matchingGame.getContext("2d");
+	drawContext = matchingGame.getContext("2d");
 	drawContext.fillStyle="#eee";
 	drawContext.fillRect(0,0,matchingGame.width,matchingGame.height);
 	
@@ -20,6 +20,15 @@ function draw() {
 		}	
 		
 	});
+	
+	var cat = theModel.catch;
+	drawContext.strokeStyle = cat.c;
+	drawContext.beginPath();
+	drawContext.arc(cat.x*matchingGame.width/100,
+					cat.y*matchingGame.height/100,
+					cat.r*matchingGame.width/100,
+					0,2*Math.PI,true);
+	drawContext.stroke();
 }
 
 theView = {draw:draw};

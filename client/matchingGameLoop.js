@@ -1,7 +1,14 @@
 function run(){
 	
-	theModel.update();
-	theView.draw();
+	if (Session.get("timer") > 0) {
+		theModel.update();
+		theView.draw();
+	}
+	else {
+		theModel.running = false;
+		$("#controlGame").html("Done!");
+	}
+	
 	
 	if (theModel.running) 
 		window.requestAnimationFrame(run);
